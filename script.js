@@ -37,36 +37,60 @@ const customersCategories = [
   },
 ];
 
+const employeeList = [
+  {
+    photo: "./img/employee-photo/rodion.png",
+    avatar: "./img/employee-photo/rodion-round.png",
+    name: "Rodion Zhitomirsky",
+    role: "Chairman of the Board, Co-founder",
+  },
+  {
+    photo: "./img/employee-photo/sergey.png",
+    avatar: "./img/employee-photo/sergey-round.png",
+    name: "Sergey Zubekhin",
+    role: "CEO, Co-founder",
+  },
+  {
+    photo: "./img/employee-photo/maria.png",
+    avatar: "./img/employee-photo/maria-round.png",
+    name: "Maria Bondarenko",
+    role: "VP Product, Shareholder",
+  },
+  {
+    photo: "./img/employee-photo/eugene.png",
+    avatar: "./img/employee-photo/eugene-round.png",
+    name: "Eugene Boiko",
+    role: "VP Software Development, Shareholder",
+  },
+  {
+    photo: "./img/employee-photo/fred.png",
+    avatar: "./img/employee-photo/fred-round.png",
 
-const employeeList = [{
-  photo: './img/employee-photo/rodion.png',
-  avatar: './img/employee-photo/rodion-round.png',
-  name: 'Rodion Zhitomirsky',
-  role: 'Chairman of the Board, Co-founder'
-},
-{
-  photo: './img/employee-photo/sergey.png',
-  avatar: './img/employee-photo/sergey-round.png',
-  name: 'Sergey Zubekhin',
-  role: 'CEO, Co-founder'
-}, {
-  photo: './img/employee-photo/maria.png',
-  avatar: './img/employee-photo/maria-round.png',
-  name: 'Maria Bondarenko',
-  role: 'VP Product, Shareholder'
-}, {
-  photo: './img/employee-photo/eugene.png',
-  avatar: './img/employee-photo/eugene-round.png',
-  name: 'Eugene Boiko',
-  role: 'VP Software Development, Shareholder'
-}, {
-  photo: './img/employee-photo/fred.png',
-  avatar: './img/employee-photo/fred-round.png',
+    name: "Fred Bean",
+    role: "Chief Partnership Officer",
+  },
+];
 
-  name: 'Fred Bean',
-  role: 'Chief Partnership Officer'
-}]
-
+const tehnologyList = [
+  {
+    title: "GP Travel Enterprise",
+    description:
+      "GP Travel Enterprise is an innovative and powerful travel automation solution for Tour Operators, OTAs, DMCs, TMCs and Wholesalers, which helps hundreds of companies across the  globe to run and grow their businesses.",
+    img: "./img/tehnology/enterprise.png",
+  },
+  {
+    title: "GP Travel Hub",
+    description:
+      "GP Travel Hub is a unified API aggregator designed for saving your time, keeping money in your pocket and helping you to launch faster.",
+    img: "./img/tehnology/hub.png",
+  },
+  {
+    title: "Product-based Implementaation",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu pellentesque vestibulum, augue sodales.",
+    img: "./img/tehnology/implementation.png",
+  },
+];
 
 const customersLogoGrid = document.getElementById("customers-map");
 
@@ -91,67 +115,105 @@ customersCategories.forEach((category) => {
 
   const categoryLogo = document.createElement("img");
   categoryLogo.src = category.link;
-  categoryLogo.alt = `${category.name} icon`
-  categoryLogo.classList.add('category-logo')
+  categoryLogo.alt = `${category.name} icon`;
+  categoryLogo.classList.add("category-logo");
 
-  const nextIcon = document.createElement("img")
-  nextIcon.src = "./img/customer-categories-icons/arrow-icon.svg"
-  nextIcon.alt = "icon with arrow"
-  nextIcon.classList.add('next-icon')
+  const nextIcon = document.createElement("img");
+  nextIcon.src = "./img/customer-categories-icons/arrow-icon.svg";
+  nextIcon.alt = "icon with arrow";
+  nextIcon.classList.add("next-icon");
 
   const categoryName = document.createElement("span");
   categoryName.textContent = category.name;
 
   categoryContainer.appendChild(categoryLogo);
   categoryContainer.appendChild(categoryName);
-  categoryContainer.appendChild(nextIcon)
+  categoryContainer.appendChild(nextIcon);
 
   customersCategoriesGrid.appendChild(categoryContainer);
-
 });
 
-const employeesList = document.getElementById('employees-list');
+const employeesList = document.getElementById("employees-list");
 
-employeeList.forEach(employee => {
-  const card = document.createElement('div');
-  card.className = 'card';
+employeeList.forEach((employee) => {
+  const card = document.createElement("div");
+  card.className = "card";
   card.style.background = `linear-gradient(72deg, rgba(0, 39, 123, 0.7) 0%, rgba(5, 83, 177, 0.7) 100%), url(${employee.photo})`;
 
-
-  const faceCircle = document.createElement('div');
-  faceCircle.className = 'face-circle';
+  const faceCircle = document.createElement("div");
+  faceCircle.className = "face-circle";
   faceCircle.style.background = `url(${employee.avatar}) center no-repeat`;
 
+  const infoBlock = document.createElement("div");
+  infoBlock.className = "info-block";
 
-  const infoBlock = document.createElement('div');
-  infoBlock.className = 'info-block';
-
-  const inIkon = document.createElement('img')
-  inIkon.className = 'in-icon';
-  inIkon.src = './img/employee-photo/linked-in-icon.svg';
+  const inIkon = document.createElement("img");
+  inIkon.className = "in-icon";
+  inIkon.src = "./img/employee-photo/linked-in-icon.svg";
   inIkon.alt = `linkedIn icon`;
 
-  const nextIcon = document.createElement("img")
-  nextIcon.src = "./img/employee-photo/go-next-icon.png"
-  nextIcon.alt = "icon with arrow"
-  nextIcon.classList.add('go-in-icon')
+  const nextIcon = document.createElement("img");
+  nextIcon.src = "./img/employee-photo/go-next-icon.png";
+  nextIcon.alt = "icon with arrow";
+  nextIcon.classList.add("go-in-icon");
 
-  const nameParagraph = document.createElement('p');
-  nameParagraph.className = 'name';
+  const nameParagraph = document.createElement("p");
+  nameParagraph.className = "name";
   nameParagraph.textContent = employee.name;
 
-  const positionParagraph = document.createElement('p');
-  positionParagraph.className = 'position';
+  const positionParagraph = document.createElement("p");
+  positionParagraph.className = "position";
   positionParagraph.textContent = employee.role;
 
-  nameParagraph.appendChild(nextIcon)
-  nameParagraph.appendChild(inIkon)
+  nameParagraph.appendChild(nextIcon);
+  nameParagraph.appendChild(inIkon);
 
   infoBlock.appendChild(nameParagraph);
   infoBlock.appendChild(positionParagraph);
 
-  card.appendChild(faceCircle)
+  card.appendChild(faceCircle);
   card.appendChild(infoBlock);
 
   employeesList.appendChild(card);
+});
+
+const tehList = document.getElementById("teh-list");
+
+tehnologyList.forEach((item) => {
+  const card = document.createElement("div");
+  card.className = "teh-card";
+
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "img-container";
+
+  const img = document.createElement("img");
+  img.src = item.img;
+  img.alt = `ilustration for ${item.title} card`;
+
+  imgContainer.appendChild(img);
+
+  const infoContainer = document.createElement("div");
+  infoContainer.className = "info-container";
+
+  const h4 = document.createElement("h4");
+  h4.className = "h4";
+  h4.textContent = item.title;
+
+  const description = document.createElement("p");
+  description.className = "description";
+  description.textContent = item.description;
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.textContent = "Learn More";
+  button.className = "teh-button";
+
+  infoContainer.appendChild(h4);
+  infoContainer.appendChild(description);
+  infoContainer.appendChild(button);
+
+  card.appendChild(imgContainer);
+  card.appendChild(infoContainer);
+
+  tehList.appendChild(card);
 });
