@@ -34,7 +34,7 @@ body {
   max-width: 1110px;
   box-sizing: border-box;
   width: 100%;
-  border: lightgreen 5px solid;
+  /* border: lightgreen 5px solid; */
   margin: 0 auto;
 }
 .h-with-line::before {
@@ -199,10 +199,13 @@ body {
 .leadership-block {
   padding: 100px 0;
   background: #f1f8fc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
 
   .employees-list {
     max-width: 1020px;
@@ -223,7 +226,6 @@ body {
     border-radius: 13px;
     border: 0px;
     outline: 0px;
-    /* background: #e1e8ee; */
   }
 
   .face-circle {
