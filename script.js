@@ -37,6 +37,37 @@ const customersCategories = [
   },
 ];
 
+
+const employeeList = [{
+  photo: './img/employee-photo/rodion.png',
+  avatar: './img/employee-photo/rodion-round.png',
+  name: 'Rodion Zhitomirsky',
+  role: 'Chairman of the Board, Co-founder'
+},
+{
+  photo: './img/employee-photo/sergey.png',
+  avatar: './img/employee-photo/sergey-round.png',
+  name: 'Sergey Zubekhin',
+  role: 'CEO, Co-founder'
+}, {
+  photo: './img/employee-photo/maria.png',
+  avatar: './img/employee-photo/maria-round.png',
+  name: 'Maria Bondarenko',
+  role: 'VP Product, Shareholder'
+}, {
+  photo: './img/employee-photo/eugene.png',
+  avatar: './img/employee-photo/eugene-round.png',
+  name: 'Eugene Boiko',
+  role: 'VP Software Development, Shareholder'
+}, {
+  photo: './img/employee-photo/fred.png',
+  avatar: './img/employee-photo/fred-round.png',
+
+  name: 'Fred Bean',
+  role: 'Chief Partnership Officer'
+}]
+
+
 const customersLogoGrid = document.getElementById("customers-map");
 
 custimersLogo.forEach((logo) => {
@@ -77,4 +108,50 @@ customersCategories.forEach((category) => {
 
   customersCategoriesGrid.appendChild(categoryContainer);
 
+});
+
+const employeesList = document.getElementById('employees-list');
+
+employeeList.forEach(employee => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.style.background = `linear-gradient(72deg, rgba(0, 39, 123, 0.7) 0%, rgba(5, 83, 177, 0.7) 100%), url(${employee.photo})`;
+
+
+  const faceCircle = document.createElement('div');
+  faceCircle.className = 'face-circle';
+  faceCircle.style.background = `url(${employee.avatar}) center no-repeat`;
+
+
+  const infoBlock = document.createElement('div');
+  infoBlock.className = 'info-block';
+
+  const inIkon = document.createElement('img')
+  inIkon.className = 'in-icon';
+  inIkon.src = './img/employee-photo/linked-in-icon.svg';
+  inIkon.alt = `linkedIn icon`;
+
+  const nextIcon = document.createElement("img")
+  nextIcon.src = "./img/employee-photo/go-next-icon.png"
+  nextIcon.alt = "icon with arrow"
+  nextIcon.classList.add('go-in-icon')
+
+  const nameParagraph = document.createElement('p');
+  nameParagraph.className = 'name';
+  nameParagraph.textContent = employee.name;
+
+  const positionParagraph = document.createElement('p');
+  positionParagraph.className = 'position';
+  positionParagraph.textContent = employee.role;
+
+  nameParagraph.appendChild(nextIcon)
+  nameParagraph.appendChild(inIkon)
+
+  infoBlock.appendChild(nameParagraph);
+  infoBlock.appendChild(positionParagraph);
+
+  card.appendChild(faceCircle)
+  card.appendChild(infoBlock);
+
+  employeesList.appendChild(card);
 });
