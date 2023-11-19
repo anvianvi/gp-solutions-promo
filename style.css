@@ -392,38 +392,7 @@ body {
   }
 }
 
-@media screen and (width < 1110px) {
-  .container {
-    padding-inline: 5px;
-  }
-  .header {
-    .header-block {
-      justify-content: center;
-      gap: 20px;
-    }
-  }
-  .we-global {
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .travel-tehnology .teh-content-container {
-    justify-content: center;
-  }
-}
-
-@media screen and (width < 700px) {
-  .customers-map {
-    background: none;
-    grid-template-columns: repeat(2, 150px);
-    justify-content: center;
-  }
-  .header-block img {
-    width: 90vw;
-  }
-}
-
-footer {
+.footer {
   background: linear-gradient(
       0deg,
       rgba(17, 53, 99, 0.6) 0%,
@@ -587,5 +556,42 @@ footer {
   }
   .active {
     background: #fff;
+  }
+}
+
+@media screen and (width < 1110px) {
+  .container {
+    padding-inline: 5px;
+  }
+  .header {
+    .header-block {
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+  .we-global {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .travel-tehnology .teh-content-container {
+    justify-content: center;
+  }
+  .slider-container {
+    max-width: 600px;
+  }
+  .next-slide {
+    display: none;
+  }
+}
+
+@media screen and (width < 700px) {
+  .customers-map {
+    background: none;
+    grid-template-columns: repeat(2, 150px);
+    justify-content: center;
+  }
+  .header-block img {
+    width: 90vw;
   }
 }
