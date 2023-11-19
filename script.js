@@ -92,6 +92,34 @@ const tehnologyList = [
   },
 ];
 
+const clientReview = [{
+  photo: "./img/clients-review/claus.png",
+  name: "Claus Palmgren Jessen",
+  position: "Managing Director at Afrika-safari",
+  logo: "./img/clients-review/claus-logo.svg",
+  description: `“Due to their experience in travel IT we’ve selected GP Solutions to work on a custom project for Afrika-safari, which involved interaction with Amadeus. We found GP team to be professional, dependable and responsive. We are pleased to recommend GP Solutions GmbH as a reliable travel technology partner.”`,
+}, {
+  photo: "./img/clients-review/marc.jpeg",
+  name: "Marc Blaser",
+  position: "Director Projects & E-Business, Hoteplan Management AG, Switzerland",
+  logo: "./img/clients-review/holtepan.png",
+  description: `“Although metrics are skewed by the pandemic, GP Solutions delivered high-quality work. They demonstrated the ability to quickly allocate new resources as needed and clearly care about our needs. Their expertise in travel-oriented development and their team’s wide range of skills has been huge for us.”`,
+}, {
+  photo: "./img/clients-review/dennis.png",
+  name: "Dennis Behnsen",
+  position: "Vice President, EF Education First, Switzerland",
+  logo: "./img/customers-icons/ef.svg",
+  description: `“Our companies project required customization to fit our needs. Our unique requests and developments were handled very efficiently by GP Solutions. The analysists, developers and business managers at GP Solutions were always on top of things – providing detailed information and high levels of attention to detail to ensure a top quality product was produced.”`,
+},
+{
+  photo: "./img/clients-review/stepan.jpeg",
+  name: "Stan Nazarenko",
+  position: "CEO, Piprate, Ireland",
+  logo: "./img/clients-review/papirate.png",
+  description: `“With tight deadlines looming, GP Solutions delivered the proof of concept on time, drawing praise from clients. Though initially unfamiliar with the programming language, they spent ample time to learn. Their professionalism and dedication were vital components of the project’s success.”`,
+},]
+
+
 const customersLogoGrid = document.getElementById("customers-map");
 
 custimersLogo.forEach((logo) => {
@@ -217,3 +245,180 @@ tehnologyList.forEach((item) => {
 
   tehList.appendChild(card);
 });
+
+function createSlide(review) {
+  const slideContainer = document.createElement('div');
+  slideContainer.classList.add('slide-container');
+
+  const slide = document.createElement('div');
+  slide.classList.add('slide');
+
+  const feedbackHeader = document.createElement('div');
+  feedbackHeader.classList.add('feedback-header');
+
+  const photoClient = document.createElement('div');
+  photoClient.classList.add('client-photo');
+  const clientPhoto = document.createElement('img');
+  clientPhoto.src = review.photo;
+  clientPhoto.alt = `pfoto of ${review.name}`;
+  clientPhoto.classList.add('client-img')
+  photoClient.appendChild(clientPhoto);
+
+  const clientData = document.createElement('div');
+  clientData.classList.add('client-data');
+  const name = document.createElement('div');
+  name.classList.add('name');
+  name.textContent = review.name;
+  const position = document.createElement('div');
+  position.classList.add('position');
+  position.textContent = review.position;
+  clientData.appendChild(name);
+  clientData.appendChild(position);
+
+  const companyLogo = document.createElement('div');
+  companyLogo.classList.add('company-logo');
+  const logo = document.createElement('img');
+  logo.src = review.logo;
+  logo.alt = 'Company Logo';
+  logo.classList.add('logo-img');
+  companyLogo.appendChild(logo);
+
+  const feedbackDescription = document.createElement('p');
+  feedbackDescription.classList.add('feedback-description');
+  feedbackDescription.textContent = review.description;
+
+  feedbackHeader.appendChild(photoClient);
+  feedbackHeader.appendChild(clientData);
+  feedbackHeader.appendChild(companyLogo);
+
+  slide.appendChild(feedbackHeader);
+  slide.appendChild(feedbackDescription);
+
+  slideContainer.appendChild(slide);
+
+  return slideContainer;
+}
+
+let currentSlideIndex = 0;
+const dots = document.querySelectorAll(".dot")
+
+function initSlides(currentSlideIndex) {
+  const slideList = document.getElementById('slider-list');
+  const currentSlide = createSlide(clientReview[currentSlideIndex])
+  currentSlide.classList.add('current-slide')
+  const nextSlide = createSlide(clientReview[currentSlideIndex + 1])
+  nextSlide.classList.add('next-slide')
+
+  slideList.appendChild(currentSlide)
+  slideList.appendChild(nextSlide)
+  dots[currentSlideIndex].classList.add('active')
+};
+initSlides(currentSlideIndex);
+
+function nextSlide() {
+  const slideList = document.getElementById('slider-list');
+  const slider = document.querySelectorAll('.slide-container');
+
+  slideList.removeChild(slideList.firstChild);
+
+  slider.forEach(element => {
+    element.classList.toggle('current-slide')
+    element.classList.toggle('next-slide')
+  });
+
+  let nextSlideIndex
+  switch (currentSlideIndex) {
+    case 0:
+      nextSlideIndex = 2
+      break;
+    case 1:
+      nextSlideIndex = 3
+      break;
+    case 2:
+      nextSlideIndex = 0
+      break;
+    case 3:
+      nextSlideIndex = 1
+      break;
+    default: console.log('error')
+      break;
+  }
+  const nextSlide = createSlide(clientReview[nextSlideIndex])
+  nextSlide.classList.add('next-slide')
+  slideList.appendChild(nextSlide)
+
+  currentSlideIndex += 1
+  if (currentSlideIndex > 3) {
+    currentSlideIndex = 0
+  }
+  dots.forEach(element => {
+    element.classList.remove('active')
+  });
+  dots[currentSlideIndex].classList.add('active')
+}
+
+function prevSlide() {
+  const slideList = document.getElementById('slider-list');
+  const slider = document.querySelectorAll('.slide-container');
+  slideList.removeChild(slideList.lastChild);
+  slider.forEach(element => {
+    element.classList.toggle('current-slide')
+    element.classList.toggle('next-slide')
+  });
+  let priviusSlideIndex
+  switch (currentSlideIndex) {
+    case 0:
+      priviusSlideIndex = 3
+      break;
+    case 1:
+      priviusSlideIndex = 0
+      break;
+    case 2:
+      priviusSlideIndex = 1
+      break;
+    case 3:
+      priviusSlideIndex = 2
+      break;
+    default: console.log('error')
+      break;
+  }
+  const priviusSlide = createSlide(clientReview[priviusSlideIndex])
+  priviusSlide.classList.add('current-slide')
+  slideList.insertBefore(priviusSlide, slideList.firstChild);
+
+  currentSlideIndex -= 1
+  if (currentSlideIndex < 0) {
+    currentSlideIndex = 3;
+  }
+  dots.forEach(element => {
+    element.classList.remove('active')
+  });
+  dots[currentSlideIndex].classList.add('active')
+}
+
+function currentSlide(index) {
+  console.log(index)
+
+  const slideList = document.getElementById('slider-list');
+
+  currentSlideIndex = index;
+  while (slideList.firstChild) {
+    slideList.removeChild(slideList.firstChild);
+  }
+  if (currentSlideIndex < 2
+  ) {
+    initSlides(currentSlideIndex)
+  }
+
+  const currentSlide = createSlide(clientReview[currentSlideIndex])
+  currentSlide.classList.add('current-slide')
+  const nextSlide = createSlide(clientReview[0])
+  nextSlide.classList.add('next-slide')
+
+  slideList.appendChild(currentSlide)
+  slideList.appendChild(nextSlide)
+
+  console.log(currentSlideIndex)
+}
+
+

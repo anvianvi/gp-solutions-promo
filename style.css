@@ -424,5 +424,168 @@ body {
 }
 
 footer {
-  height: 300px;
+  background: linear-gradient(
+      0deg,
+      rgba(17, 53, 99, 0.6) 0%,
+      rgba(17, 53, 99, 0.6) 100%
+    ),
+    url("./img/footer-back.png") center / cover no-repeat lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+
+  .h2 {
+    color: var(--white, #fff);
+    margin-bottom: 40px;
+  }
+
+  .slider-container {
+    position: relative;
+    width: 1100px;
+    height: 380px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
+  .slider {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 50%;
+    border-radius: 4px;
+    color: var(--white, #fff);
+    padding: 44px 0 0 50px;
+
+    .feedback-header {
+      display: flex;
+    }
+    .feedback-header {
+      margin-bottom: 30px;
+    }
+    .client-photo {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-right: 33px;
+
+      .client-img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .client-data {
+      width: 215px;
+      margin-right: 13px;
+
+      .name {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .position {
+        font-size: 16px;
+      }
+    }
+
+    .company-logo {
+      width: 175px;
+      height: 105px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .logo-img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .feedback-description {
+      max-width: 510px;
+      font-size: 16px;
+    }
+  }
+
+  .current-slide {
+    .slide {
+      background: #21508e;
+      min-width: 635px;
+    }
+  }
+
+  .next-slide {
+    background: transparent;
+    padding-left: 25px;
+
+    .slide {
+      width: 445px;
+      height: 265px;
+      padding: 20px;
+      background: #21508e;
+      opacity: 0.5;
+    }
+
+    .client-photo {
+      width: 79px;
+      height: 79px;
+      margin-right: 23px;
+    }
+    .client-data {
+      width: 160px;
+
+      .name {
+        font-size: 12px;
+      }
+
+      .position {
+        font-size: 12px;
+      }
+    }
+    .company-logo {
+      max-width: 100px;
+      max-height: 75px;
+    }
+    .feedback-header {
+      margin-bottom: 20px;
+    }
+    .feedback-description {
+      max-width: 370px;
+      font-size: 12px;
+    }
+  }
+  .pagination-button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+  .slider-controls {
+    display: flex;
+    gap: 40px;
+  }
+
+  .dots-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .active {
+    background: #fff;
+  }
 }
