@@ -397,28 +397,40 @@ function prevSlide() {
 }
 
 function currentSlide(index) {
-  console.log(index)
-
+  currentSlideIndex = index
   const slideList = document.getElementById('slider-list');
-
-  currentSlideIndex = index;
-  while (slideList.firstChild) {
-    slideList.removeChild(slideList.firstChild);
-  }
-  if (currentSlideIndex < 2
-  ) {
-    initSlides(currentSlideIndex)
-  }
-
+  slideList.removeChild(slideList.lastChild);
+  slideList.removeChild(slideList.lastChild);
   const currentSlide = createSlide(clientReview[currentSlideIndex])
   currentSlide.classList.add('current-slide')
-  const nextSlide = createSlide(clientReview[0])
+
+  let nextSlideIndex
+  switch (currentSlideIndex) {
+    case 0:
+      nextSlideIndex = 1
+      break;
+    case 1:
+      nextSlideIndex = 2
+      break;
+    case 2:
+      nextSlideIndex = 3
+      break;
+    case 3:
+      nextSlideIndex = 0
+      break;
+    default: console.log('error')
+      break;
+  }
+  const nextSlide = createSlide(clientReview[nextSlideIndex])
   nextSlide.classList.add('next-slide')
 
   slideList.appendChild(currentSlide)
   slideList.appendChild(nextSlide)
 
-  console.log(currentSlideIndex)
+  dots.forEach(element => {
+    element.classList.remove('active')
+  });
+  dots[currentSlideIndex].classList.add('active')
 }
 
 
