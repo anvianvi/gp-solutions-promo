@@ -65,7 +65,7 @@ body {
   padding-bottom: 15px;
 }
 
-.header {
+.hero {
   padding: 50px 0;
 
   .h1 {
@@ -78,7 +78,7 @@ body {
     line-height: 1.4;
   }
 
-  .header-block {
+  .hero-block {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -421,13 +421,13 @@ body {
   .slider {
     display: flex;
     height: 100%;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
   }
 
   .slide {
     box-sizing: border-box;
     height: 100%;
-    min-width: 50%;
+    min-width: 635px;
     border-radius: 4px;
     color: var(--white, #fff);
     padding: 44px 0 0 50px;
@@ -490,18 +490,22 @@ body {
       min-width: 635px;
     }
   }
+  .slide.current-slide {
+    background: #21508e;
+    min-width: 635px;
+  }
+
+  .slide.next-slide {
+    width: 445px;
+    height: 265px;
+    padding: 20px;
+    background: #21508e;
+    opacity: 0.5;
+    margin-left: 25px;
+  }
 
   .next-slide {
     background: transparent;
-    padding-left: 25px;
-
-    .slide {
-      width: 445px;
-      height: 265px;
-      padding: 20px;
-      background: #21508e;
-      opacity: 0.5;
-    }
 
     .client-photo {
       width: 79px;
