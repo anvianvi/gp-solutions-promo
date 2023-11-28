@@ -88,6 +88,10 @@ body {
   .hero-text {
     max-width: 535px;
   }
+  .hero-img-container {
+    height: 360px;
+    display: flex;
+  }
 }
 
 .we-global {
@@ -333,6 +337,8 @@ body {
     left: 0;
   }
   .teh-label {
+    position: sticky;
+    top: 50px;
     align-self: self-start;
     width: 490px;
     padding: 15px 20px;
@@ -567,10 +573,16 @@ body {
   .container {
     padding-inline: 5px;
   }
-  .header {
+  /* .header {
     .header-block {
       justify-content: center;
       gap: 20px;
+    }
+  } */
+  .hero {
+    .hero-block {
+      justify-content: center;
+      gap: 15px;
     }
   }
   .we-global {
@@ -580,6 +592,10 @@ body {
 
   .travel-tehnology .teh-content-container {
     justify-content: center;
+  }
+  .travel-tehnology .teh-label {
+    position: relative;
+    top: 0;
   }
   .slider-container {
     max-width: 600px;
