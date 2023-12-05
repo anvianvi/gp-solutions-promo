@@ -216,6 +216,7 @@ tehnologyList.forEach((item) => {
 
   const img = document.createElement("img");
   img.src = item.img;
+  img.className = "img"
   img.alt = `ilustration for ${item.title} card`;
 
   imgContainer.appendChild(img);
