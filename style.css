@@ -40,6 +40,7 @@
     background: #fff;
     box-shadow: 2px 3px 30px 0px rgba(0, 0, 0, 0.05);
     cursor: pointer;
+    transition: all 0.7s;
   }
   .customer-logo-container:hover {
     background: rgba(0, 0, 0, 0.05);
@@ -102,9 +103,11 @@
     left: 70px;
     top: 50px;
     opacity: 0;
+    transition: all 0.7s;
   }
   .category-container:hover .next-icon {
     opacity: 1;
+    transform: rotate(1turn);
   }
 }
 
@@ -180,11 +183,13 @@
     top: -75px;
     left: 165px;
     opacity: 0;
+    transition: all 0.7s;
   }
   .in-icon {
     position: absolute;
     top: -75px;
     left: 165px;
+    transition: all 0.7s;
   }
 
   .card:hover {
@@ -209,9 +214,11 @@
   }
   .card:hover .in-icon {
     opacity: 0;
+    transform: rotate(1turn);
   }
   .card:hover .go-in-icon {
     opacity: 1;
+    transform: rotate(1turn);
   }
 }
 
