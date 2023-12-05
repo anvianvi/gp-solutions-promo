@@ -17,6 +17,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
 
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/hero.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Software Development Company | GP Solutions</title>
   </head>
@@ -34,9 +36,47 @@
           </p>
           <div class="hero-img-container">
             <img
+              class="hero-img"
               src="./img/hero.webp"
               alt="photo of GP Solutions Team"
+              id="hero-img"
             />
+            <button
+              onclick="toggleVideo()"
+              type="button"
+              class="hero-video-control"
+              id="hero-video-control"
+            >
+              <svg
+                class="hero-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="49"
+                height="50"
+                viewBox="0 0 49 50"
+                fill="none"
+              >
+                <path
+                  d="M16.333 12.4082L36.7497 24.6582L16.333 36.9082V12.4082Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+
+            <iframe
+              class="hero-video hide"
+              id="hero-video"
+              width="560"
+              height="315"
+              src=""
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
       </section>
@@ -149,6 +189,7 @@
         </button>
       </div>
     </footer>
+    <script src="./src/hero.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
